@@ -25,13 +25,15 @@ public class Perceptron {
 
         for(int i=0;i<iterations;i++){
             int totalError = 0;
+
             for(int j=0;j<p;j++){
                 int output = Output(inputs[j]);
                 int error = outputs[j] - output;
                 totalError+=error;
                 for(int k=0;k<n;k++){
                     double delta = lrate * inputs[j][k] * error;
-                    weights[k]+=delta;
+                    weights[k]+=delta;;
+
                 }
             }
             if(totalError == 0) break;
@@ -42,7 +44,10 @@ public class Perceptron {
         double sum = 0.0;
         for(int i=0;i<input.length;i++){
             sum+=weights[i]*input[i];
+
         }
+        System.out.println("SUM: " + sum);
+
         if(sum>=threshold) return 1;
         else return 0;
     }
