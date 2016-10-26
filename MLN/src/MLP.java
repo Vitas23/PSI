@@ -114,7 +114,7 @@ public class MLP {
                 mlp.train(train[idx], res[idx], 0.3f, 0.6f);
             }
 
-            if ((e + 1) % 100 == 0) {
+            if ((e + 1) % 50 == 0) {
                 System.out.println();
                 for (int i = 0; i < res.length; i++) {
                     float[] t = train[i];

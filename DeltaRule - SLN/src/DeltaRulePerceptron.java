@@ -27,7 +27,7 @@ class DeltaRulePerceptron {
     public void trianWithDelta(Example[] examples){
         for(int i=0;i<1000;++i){
 
-            //System.out.println("Iteration #"+i);
+            System.out.println("Iteration #"+i);
             dw1 = 0;
             dw2 = 0;
 
@@ -35,7 +35,7 @@ class DeltaRulePerceptron {
                 double o = computeOutput(ex);
                 double t = ex.o;
 
-                //System.out.println("o = "+o+" t = "+t);
+                System.out.println("o = "+o+" t = "+t);
 
                 dw1 = dw1 + n*(t-o)*ex.x1;
                 dw2 = dw2 + n*(t-o)*ex.x2;
