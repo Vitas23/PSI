@@ -110,6 +110,7 @@ class Hopfield {
                     if (r==c) continue;
 
                     int[] ex = examples.get(e);
+
                     weights[r][c] += (ex[r]) * (ex[c]);
                 }
             }
@@ -127,6 +128,7 @@ class Hopfield {
             for (c = 0; c < N; c++) {
                 if (r == c) continue;
                 temp[r][c] += inputs[r] * weights[r][c];
+
             }
         }
 
@@ -136,6 +138,7 @@ class Hopfield {
                 outputs[c] += temp[r][c];
             }
             outputs[c] = SGN(outputs[c]);
+
         }
 
         return;
@@ -173,18 +176,19 @@ class Hopfield {
 
             noise = 0.0;
 
-            for (i = 0; i < 4; i++) {
-                System.out.print("\n--\nproblem nr " + noise + "\n");
+            for (i = 0; i < 21; i++) {
+                System.out.print("\n--\nZageszczenie: " + noise + "\n");
 
                 setInputsToExample( e, noise );
                 emitResults(inputs);
+//                System.out.println("WAGA : " + weights[r][c]);
 
                 computeActivations();
 
-                System.out.print("result " + e + "\n");
+                System.out.print("Wynik dla wzorca nr  " + (e+1) + "\n");
                 emitResults(outputs);
 
-                noise += 0.1;
+                noise += 0.02;
 
             }
 
